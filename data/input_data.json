@@ -1,0 +1,15 @@
+{
+    "first_name": "Kierra",
+    "last_name": "Kumar",
+    "full_name": "Vikram Kumar",
+    "email": "vikram@example.com",
+    "age": "25",
+    "salary": "100000",
+    "department": "Testing",
+    "current_address": "Hyderabad, India",
+    "permanent_address": "Bangalore, India",
+    "checkbox_name": "Documents",
+    "Radio_button": "Impressive",
+    "Comments": "Impressive, Yes",
+    "status": "new"
+}

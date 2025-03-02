@@ -9,50 +9,51 @@ from pages.web_table_page import WebTable
 
 
 def test_text_box_form(browser, jsondata):
-    # Create Page Object instances
-    home_page = HomePage(browser)
-    elements_page = ElementsPage(browser)
-    text_box_page = TextBoxPage(browser)
-    check_box = CheckBox(browser, jsondata)
-    radio_button = Radiobutton(browser, jsondata)
-    web_table = WebTable(browser)
-    button_page = ButtonPage(browser)
-    links_page = LinksPage(browser)
+    for user_data in jsondata:
+        # Create Page Object instances
+        home_page = HomePage(browser)
+        elements_page = ElementsPage(browser)
+        text_box_page = TextBoxPage(browser)
+        check_box = CheckBox(browser, user_data)
+        radio_button = Radiobutton(browser, user_data)
+        web_table = WebTable(browser)
+        button_page = ButtonPage(browser)
+        links_page = LinksPage(browser)
 
-    home_page.click_on_elements()
+        home_page.click_on_elements()
 
-    # Expand "Elements" section if collapsed
-    elements_page.expand_elements_if_needed()
+        # Expand "Elements" section if collapsed
+        elements_page.expand_elements_if_needed()
 
-    # Click on "Text Box"
-    elements_page.click_text_box()
+        # Click on "Text Box"
+        elements_page.click_text_box()
 
-    # Fill the form with JSON data
-    text_box_page.fill_form(jsondata)
+        # Fill the form with JSON data
+        text_box_page.fill_form(user_data)
 
-    # Submit the form
-    text_box_page.submit_form()
+        # Submit the form
+        text_box_page.submit_form()
 
-    # Validate Output
-    text_box_page.verify_submission(jsondata)
+        # Validate Output
+        text_box_page.verify_submission(user_data)
 
-    # Validate check box
-    check_box.check_box()
-    check_box.expand_folders()
+        # Validate check box
+        check_box.check_box()
+        check_box.expand_folders()
 
-    check_box.navigate_and_select_checkbox()
+        check_box.navigate_and_select_checkbox()
 
-    radio_button.navigate_radio_button_page()
-    radio_button.select_radio_button()
+        radio_button.navigate_radio_button_page()
+        radio_button.select_radio_button()
 
-    web_table.navigate_web_table()
-    web_table.search(jsondata)
+        web_table.navigate_web_table()
+        web_table.search(user_data)
 
-    button_page.buttons_check()
+        button_page.buttons_check()
 
-    links_page.navigate_to_links_page()
-    links_page.handle_home_link_click()
-    links_page.dynamic_link_click()
+        links_page.navigate_to_links_page()
+        links_page.handle_home_link_click()
+        links_page.dynamic_link_click()
 
 
 

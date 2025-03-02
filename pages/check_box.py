@@ -2,7 +2,7 @@ from playwright.sync_api import Page, expect
 from pages.expected_messages import expected_messages
 
 class CheckBox:
-    def __init__(self, page:Page, data):
+    def __init__(self, page: Page, data):
         self.page = page
         self.checkbox_name = data['checkbox_name']
         self.checkbox = page.locator("//span[.='Check Box']")
@@ -44,4 +44,4 @@ class CheckBox:
         actual_text = self.result_message.inner_text().replace("\n", " ").strip()
 
         # Validate the actual message against the expected message
-        assert expected_text.replace("\n", " ") in actual_text, f" Expected '{expected_text}', but got '{actual_text}'"
+        assert expected_text.replace("\n", " ") in actual_text, f"Expected '{expected_text}', but got '{actual_text}'"

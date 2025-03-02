@@ -26,24 +26,24 @@ def jsondata():
     json_file_path = os.path.join(project_root, "data", "input_data.json")
 
     if not os.path.exists(json_file_path):
-        raise FileNotFoundError(f" JSON file not found: {json_file_path}")
+        raise FileNotFoundError(f"JSON file not found: {json_file_path}")
 
     with open(json_file_path, "r") as file:
-        data = json.load(file)  # Load JSON data
+        data = json.load(file)
 
-    return data  # Return data to test functions
+    return data["users"]
 
 def update_json_status(data, first_name, new_status):
     """Update the status of a user in the JSON file."""
     project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../"))
     json_file_path = os.path.join(project_root, "data", "input_data.json")
 
-    for user in data["users"]:
+    for user in data:
         if user["first_name"] == first_name:
             user["status"] = new_status  # Update status
 
     with open(json_file_path, "w") as file:
-        json.dump(data, file, indent=4)
+        json.dump({"users": data}, file, indent=4)
 
     print(f"✅ Status updated: {first_name} → {new_status}")
 

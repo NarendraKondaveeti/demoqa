@@ -23,7 +23,7 @@ class LinksPage:
         with self.page.expect_popup() as popup_info:
             self.home_link.click()
         new_page = popup_info.value
-        expect(new_page).to_have_url("https://demoqa.com/")# Replace with the actual URL or condition
+        expect(new_page).to_have_url("https://demoqa.com/")  # Replace with the actual URL or condition
         # Add more actions or assertions on the new_page as needed
         new_page.close()
 
@@ -31,13 +31,11 @@ class LinksPage:
         with self.page.expect_popup() as popup_info:
             self.dynamic_link.click()
         new_page = popup_info.value
-        expect(new_page).to_have_url("https://demoqa.com/")# Replace with the actual URL or condition
+        expect(new_page).to_have_url("https://demoqa.com/")  # Replace with the actual URL or condition
         # Add more actions or assertions on the new_page as needed
         new_page.close()
 
-    def created(self):
         self.created.click()
-
         expected_text = "Link has responded with staus 201 and status text Created"
         expect(self.linkResponse).to_be_visible()
         assert expected_text == self.linkResponse.inner_text().strip()

@@ -1,15 +1,64 @@
 {
-    "first_name": "Kierra",
-    "last_name": "Kumar",
-    "full_name": "Vikram Kumar",
-    "email": "vikram@example.com",
-    "age": "25",
-    "salary": "100000",
-    "department": "Testing",
-    "current_address": "Hyderabad, India",
-    "permanent_address": "Bangalore, India",
-    "checkbox_name": "Documents",
-    "Radio_button": "Impressive",
-    "Comments": "Impressive, Yes",
-    "status": "new"
+    "users": [
+        {
+            "first_name": "Kierra",
+            "last_name": "Kumar",
+            "full_name": "Vikram Kumar",
+            "email": "vikram@example.com",
+            "age": "25",
+            "salary": "100000",
+            "department": "Testing",
+            "current_address": "Hyderabad, India",
+            "permanent_address": "Bangalore, India",
+            "checkbox_name": "Documents",
+            "Radio_button": "Impressive",
+            "Comments": "Impressive, Yes",
+            "status": "new"
+        },
+        {
+            "first_name": "Amit",
+            "last_name": "Sharma",
+            "full_name": "Amit Sharma",
+            "email": "amit.sharma@example.com",
+            "age": "30",
+            "salary": "120000",
+            "department": "Development",
+            "current_address": "Mumbai, India",
+            "permanent_address": "Pune, India",
+            "checkbox_name": "Desktop",
+            "Radio_button": "Yes",
+            "Comments": "Yes, No",
+            "status": "new"
+        },
+        {
+            "first_name": "Sophia",
+            "last_name": "Williams",
+            "full_name": "Sophia Williams",
+            "email": "sophia.w@example.com",
+            "age": "28",
+            "salary": "90000",
+            "department": "HR",
+            "current_address": "New York, USA",
+            "permanent_address": "Los Angeles, USA",
+            "checkbox_name": "Downloads",
+            "Radio_button": "No",
+            "Comments": "No, Yes",
+            "status": "new"
+        },
+        {
+            "first_name": "Rajesh",
+            "last_name": "Verma",
+            "full_name": "Rajesh Verma",
+            "email": "rajesh.verma@example.com",
+            "age": "35",
+            "salary": "150000",
+            "department": "Finance",
+            "current_address": "Delhi, India",
+            "permanent_address": "Chennai, India",
+            "checkbox_name": "Documents",
+            "Radio_button": "Impressive",
+            "Comments": "Impressive, No",
+            "status": "new"
+        }
+    ]
 }

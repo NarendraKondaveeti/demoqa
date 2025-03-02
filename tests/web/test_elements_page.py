@@ -51,6 +51,9 @@ def test_text_box_form(browser, jsondata):
     button_page.buttons_check()
 
     links_page.navigate_to_links_page()
+    links_page.handle_home_link_click()
+    links_page.dynamic_link_click()
+
 
 
 

@@ -35,13 +35,10 @@ class LinksPage:
         # Add more actions or assertions on the new_page as needed
         new_page.close()
 
-        self.created.click()
-        expected_text = "Link has responded with staus 201 and status text Created"
+    def apicall(self):
+        self.page.wait_for_selector("#created")
+        self.no_content.click()
+        expected_text = "Link has responded with staus 204 and status text No Content"
         expect(self.linkResponse).to_be_visible()
-        assert expected_text == self.linkResponse.inner_text().strip()
-
-
-
-
-
-
+        actual_text = self.linkResponse.text_content().strip()
+        assert expected_text == actual_text, f"Expected: {expected_text}, but got: {actual_text}"

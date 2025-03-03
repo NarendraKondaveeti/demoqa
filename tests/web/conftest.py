@@ -12,7 +12,8 @@ def browser():  #  Python: Defining a fixture function named 'nkbrowser'
         browser = p.chromium.launch(headless=False, slow_mo=700)  #  Playwright: Launching a Chromium browser (headless=False means UI is visible)
         context = browser.new_context()  #  Playwright: Creating a new browser session (like a new Chrome profile)
         page = context.new_page()  #  Playwright: Opening a new tab in the browser
-        page.goto("https://demoqa.com")  #  Playwright: Navigating to the website
+        page.pause()
+        page.goto("https://demoqa.com", wait_until="domcontentloaded", timeout=6000)  #  Playwright: Navigating to the website
 
         yield page  #  Python: This returns `page` to test functions that request `nkbrowser` fixture
 
@@ -45,7 +46,7 @@ def update_json_status(data, first_name, new_status):
     with open(json_file_path, "w") as file:
         json.dump({"users": data}, file, indent=4)
 
-    print(f"✅ Status updated: {first_name} → {new_status}")
+    print(f" Status updated: {first_name} → {new_status}")
 
 """
 import pytest  

@@ -1,11 +1,13 @@
 from pages.buttons_page import ButtonPage
 from pages.check_box import CheckBox
 from pages.elements_page import ElementsPage
+from pages.file_download_upload import FileDownloadUpload
 from pages.home_page import HomePage
 from pages.links_page import LinksPage
 from pages.radio_buttons import Radiobutton
 from pages.text_box_page import TextBoxPage
 from pages.web_table_page import WebTable
+from tests.api.links_page import APILinksPage
 
 
 def test_text_box_form(browser, jsondata):
@@ -19,6 +21,8 @@ def test_text_box_form(browser, jsondata):
         web_table = WebTable(browser)
         button_page = ButtonPage(browser)
         links_page = LinksPage(browser)
+        api_links_page = APILinksPage(browser)
+        file_handle = FileDownloadUpload(browser)
 
         home_page.click_on_elements()
 
@@ -54,9 +58,14 @@ def test_text_box_form(browser, jsondata):
         links_page.navigate_to_links_page()
         links_page.handle_home_link_click()
         links_page.dynamic_link_click()
+        links_page.apicall()
 
+        api_links_page.api_call()
 
-
+        file_handle.goto_file_download_upload()
+        file_handle.file_download()
+        file_handle.file_upload()
+        break
 
 """
 # ✅ Importing required Page Object files

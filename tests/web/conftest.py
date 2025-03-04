@@ -5,7 +5,7 @@ from playwright.sync_api import sync_playwright  #  Playwright: Importing sync v
 
 # 🔹 Pytest fixture for launching Playwright browser
 @pytest.fixture()
-def browser():  #  Python: Defining a fixture function named 'nkbrowser'
+def browser():  #  Python: Defining a fixture function named 'browser'
     """Launch Playwright browser and share the instance across tests."""
 
     with sync_playwright() as p:  #  Playwright: Starting Playwright context (internally runs `playwright install` if needed)

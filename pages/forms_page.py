@@ -36,10 +36,29 @@ class FormsPage:
         for i in range(count):
             option_value = self.gender.nth(i).get_attribute("value")  # Get value of each option
             if option_value == data["Gender"]:  # Check if it matches the JSON data
-                self.gender.nth(i).check()  # Select the matching gender
+                self.gender.nth(i).scroll_into_view_if_needed()  # Ensure the element is in view
+                self.gender.nth(i).click(force=True)  # Click forcefully
                 print(f" Selected Gender: {data["Gender"]}")
                 break  # Stop loop after selecting
         else:
             print(f" Gender '{data["Gender"]}' not found!")
 
-        self.page.pause()
+    def fill_subject(self, data):
+        subjects_list = data["Subjects"]  # Get subjects from JSON (list)
+
+        for subject in subjects_list:  # Loop through each subject
+            partial_text = subject[:1]  # Get first 2 letters of the subject
+            self.subject.press_sequentially(partial_text)  # Type first two letters
+            self.page.wait_for_selector(".subjects-auto-complete__menu")  # Wait for dropdown
+
+            dropdown_options = self.page.locator(".subjects-auto-complete__option")  # Get options
+            count = dropdown_options.count()  # Get total options
+
+            for i in range(count):
+                option_text = dropdown_options.nth(i).inner_text()  # Get option text
+
+                if option_text == subject:  # Compare with JSON subject
+                    dropdown_options.nth(i).click()  # Select subject
+                    print(f" Selected Subject: {option_text}")
+                    break  # Stop searching for this subject
+            self.page.wait_for_timeout(500)  # Small delay before next input

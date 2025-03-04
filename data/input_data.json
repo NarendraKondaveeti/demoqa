@@ -20,7 +20,7 @@
             "Hobbies": "Reading",
             "DOB": "30 April 2021",
             "Mobile_No": "9876543210",
-            "Subjects": "Testing"
+            "Subjects": ["Computer Science", "Economics"]
         },
         {
             "first_name": "Amit",

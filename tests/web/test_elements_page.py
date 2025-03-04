@@ -78,7 +78,8 @@ def test_text_box_form(browser, jsondata):
 
         forms_page.fill_form(user_data)
         forms_page.select_gender(user_data)
-        # forms_page.upload_file()
+        forms_page.fill_subject(user_data)
+        #forms_page.upload_file()
         break
 """
 # ✅ Importing required Page Object files

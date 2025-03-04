@@ -14,7 +14,6 @@ class FileDownloadUpload:
 
     def file_download(self):
         self.download_button.click()
-        #self.page.pause()
         with self.page.expect_download() as download_info:
             self.download_button.click()  # Click the download button
 
@@ -24,7 +23,6 @@ class FileDownloadUpload:
         download.save_as("Downloads/sample.jpeg")  # Save file to a specific location
 
         print(f"File downloaded: {file_path}")
-        self.page.pause()
     def file_upload(self):
         with self.page.expect_file_chooser() as upload_file:
             self.choose_file.click()  # Click to open file chooser
@@ -33,6 +31,3 @@ class FileDownloadUpload:
 
         file_path = "C:/Users/Narendra/Downloads/1.txt"  # Get absolute path
         uploadfile.set_files(file_path)  # Upload the file
-        self.page.pause()
-
-

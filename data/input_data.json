@@ -13,7 +13,14 @@
             "checkbox_name": "Documents",
             "Radio_button": "Impressive",
             "Comments": "Impressive, Yes",
-            "status": "new"
+            "status": "new",
+            "Gender": "Female",
+            "State": "Haryana",
+            "City": "Karnal",
+            "Hobbies": "Reading",
+            "DOB": "30 April 2021",
+            "Mobile_No": "9876543210",
+            "Subjects": "Testing"
         },
         {
             "first_name": "Amit",

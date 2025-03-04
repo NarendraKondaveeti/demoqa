@@ -1,7 +1,9 @@
+from pages.Dynamic_properties import DynamicProperties
 from pages.buttons_page import ButtonPage
 from pages.check_box import CheckBox
 from pages.elements_page import ElementsPage
 from pages.file_download_upload import FileDownloadUpload
+from pages.forms_page import FormsPage
 from pages.home_page import HomePage
 from pages.links_page import LinksPage
 from pages.radio_buttons import Radiobutton
@@ -23,6 +25,8 @@ def test_text_box_form(browser, jsondata):
         links_page = LinksPage(browser)
         api_links_page = APILinksPage(browser)
         file_handle = FileDownloadUpload(browser)
+        dynamic_properties = DynamicProperties(browser)
+        forms_page = FormsPage(browser)
 
         home_page.click_on_elements()
 
@@ -65,8 +69,17 @@ def test_text_box_form(browser, jsondata):
         file_handle.goto_file_download_upload()
         file_handle.file_download()
         file_handle.file_upload()
-        break
 
+        dynamic_properties.navigate_to_dynamic_page()
+        dynamic_properties.text_check()
+        dynamic_properties.check_button_enable()
+        dynamic_properties.text_color_check()
+        dynamic_properties.visible_after_5sec()
+
+        forms_page.fill_form(user_data)
+        forms_page.select_gender(user_data)
+        # forms_page.upload_file()
+        break
 """
 # ✅ Importing required Page Object files
 from pages.check_box import CheckBox  

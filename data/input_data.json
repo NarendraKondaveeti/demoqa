@@ -18,7 +18,7 @@
             "State": "Haryana",
             "City": "Karnal",
             "Hobbies": "Reading",
-            "DOB": "30 April 2021",
+            "DOB": ["30", "04", "2021"],
             "Mobile_No": "9876543210",
             "Subjects": ["Computer Science", "Economics"]
         },
@@ -35,7 +35,14 @@
             "checkbox_name": "Desktop",
             "Radio_button": "Yes",
             "Comments": "Yes, No",
-            "status": "new"
+            "status": "new",
+            "Gender": "male",
+            "Hobbies": ["Reading", "Music"],
+            "DOB": "3 April 2012",
+            "Mobile_No": "9876543211",
+            "Subjects": ["Computer Science", "Economics"],
+            "State": "Uttar Pradesh",
+            "City": "Agra"
         },
         {
             "first_name": "Sophia",

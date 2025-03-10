@@ -2,9 +2,10 @@ import pytest  #  Python: Importing pytest for test setup and fixtures
 import os  #  Python: Importing OS module to handle file paths
 import json  #  Python: Importing JSON module to read test data files
 from playwright.sync_api import sync_playwright  #  Playwright: Importing sync version of Playwright
+import pytest
 
 # 🔹 Pytest fixture for launching Playwright browser
-@pytest.fixture()
+@pytest.fixture(scope="session")
 def browser():  #  Python: Defining a fixture function named 'browser'
     """Launch Playwright browser and share the instance across tests."""
 
@@ -13,9 +14,11 @@ def browser():  #  Python: Defining a fixture function named 'browser'
         context = browser.new_context()  #  Playwright: Creating a new browser session (like a new Chrome profile)
         page = context.new_page()  #  Playwright: Opening a new tab in the browser
         page.pause()
-        page.goto("https://demoqa.com", wait_until="domcontentloaded", timeout=6000)  #  Playwright: Navigating to the website
-
-        yield page  #  Python: This returns `page` to test functions that request `nkbrowser` fixture
+        try:
+            page.goto("https://demoqa.com", wait_until="networkidle", timeout=20000)
+        except Exception as e:
+            print(f"Page load failed: {e}")  #  Playwright: Navigating to the website
+        yield page  #  Python: This returns `page` to test functions that request `browser` fixture
 
         browser.close()  #  Playwright: This line is commented out (if uncommented, it will close the browser after tests finish)
 

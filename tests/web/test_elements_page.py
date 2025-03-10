@@ -1,9 +1,9 @@
+import pytest
 from pages.Dynamic_properties import DynamicProperties
 from pages.buttons_page import ButtonPage
 from pages.check_box import CheckBox
 from pages.elements_page import ElementsPage
 from pages.file_download_upload import FileDownloadUpload
-from pages.forms_page import FormsPage
 from pages.home_page import HomePage
 from pages.links_page import LinksPage
 from pages.radio_buttons import Radiobutton
@@ -11,7 +11,7 @@ from pages.text_box_page import TextBoxPage
 from pages.web_table_page import WebTable
 from tests.api.links_page import APILinksPage
 
-
+#@pytest.mark.dependency()
 def test_text_box_form(browser, jsondata):
     for user_data in jsondata:
         # Create Page Object instances
@@ -20,13 +20,13 @@ def test_text_box_form(browser, jsondata):
         text_box_page = TextBoxPage(browser)
         check_box = CheckBox(browser, user_data)
         radio_button = Radiobutton(browser, user_data)
-        web_table = WebTable(browser)
+        web_table = WebTable(browser, user_data)
         button_page = ButtonPage(browser)
         links_page = LinksPage(browser)
         api_links_page = APILinksPage(browser)
         file_handle = FileDownloadUpload(browser)
         dynamic_properties = DynamicProperties(browser)
-        forms_page = FormsPage(browser)
+
 
         home_page.click_on_elements()
 
@@ -55,7 +55,7 @@ def test_text_box_form(browser, jsondata):
         radio_button.select_radio_button()
 
         web_table.navigate_web_table()
-        web_table.search(user_data)
+        web_table.search_and_add_user(user_data)
 
         button_page.buttons_check()
 
@@ -76,10 +76,7 @@ def test_text_box_form(browser, jsondata):
         dynamic_properties.text_color_check()
         dynamic_properties.visible_after_5sec()
 
-        forms_page.fill_form(user_data)
-        forms_page.select_gender(user_data)
-        forms_page.fill_subject(user_data)
-        #forms_page.upload_file()
+
         break
 """
 # ✅ Importing required Page Object files

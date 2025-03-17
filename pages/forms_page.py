@@ -145,7 +145,10 @@ class FormsPage:
             "Mobile": data["Mobile_No"],
             "Date of Birth": f"{data['DOB'][0]} {self.get_month_name(data['DOB'][1])},{data['DOB'][2]}",
             "Subjects": ", ".join(data["Subjects"]),
-            "Hobbies": ", ".join(data["Hobbies"]) if isinstance(data["Hobbies"], list) else data["Hobbies"],
+            # Check if "Hobbies" is a list
+            # If it is a list, join all items with ", " (comma and space) to make a single string
+            # If it is already a string, keep it as it is
+            "Hobbies": ", ".join(data["Hobbies"]) if isinstance(data["Hobbies"], list) else data["Hobbies"], #isinstance() checks what type of data it is!
             "Picture": "sampleFile.jpeg",  # Assuming fixed file name
             "Address": data["current_address"],
             "State and City": f"{data['State']} {data['City']}",
@@ -174,10 +177,3 @@ class FormsPage:
             "09": "September", "10": "October", "11": "November", "12": "December"
         }
         return months.get(str(month_number), "Invalid")
-
-
-
-
-
-
-

@@ -1,4 +1,4 @@
 Error
 self.page.remove_listener("dialog", lambda dialog: dialog.accept()) """Naked unprotected removal."""
 
-previously dialog event override the present event, so resolve that issue I used page.once instead of page.on
+previously dialog event override the present event, so resolve that issue I used page.once instead of page.on, but here also I face one issue that some times it's working as expected but always

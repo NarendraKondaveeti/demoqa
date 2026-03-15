@@ -4,7 +4,7 @@ class ElementsPage:
     def __init__(self, page:Page):
         self.page = page
         self.expand_button = "//div[contains(@class, 'header-wrapper')]//div[@class='icon']"
-        self.text_box_button = "//li[@id='item-0']//span[contains(text(), 'Text Box')]"
+        self.text_box_button = "//li[.='Text Box']"
 
     def expand_elements_if_needed(self):
         """Expand 'Elements' section if collapsed."""

@@ -11,7 +11,7 @@ class ModalDialogs:
         self.large_modal = page.locator("#showLargeModal")
         self.large_modal_expected_text = "It has survived not only five centuries"
         self.large_modal_text = page.locator(".modal-body")
-        self.large_modal_close = page.locator(".close")
+        self.large_modal_close = page.locator("#closeLargeModal")
 
     def navigate_to_modal_dialogs_page(self):
         self.modal_dialogs_page.click()

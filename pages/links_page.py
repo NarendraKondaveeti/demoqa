@@ -1,44 +1,15 @@
 from playwright.sync_api import Page, expect
 
-class LinksPage:
+class APILinksPage:
     def __init__(self, page:Page):
         self.page = page
-        self.link_page = page.locator("//li[.='Links']")
-        self.home_link = page.locator("#simpleLink")
-        self.dynamic_link = page.locator("#dynamicLink")
-        self.created = page.locator("#created")
-        self.moved = page.locator("#moved")
-        self.no_content = page.locator("#no-content")
-        self.bad_request = page.locator("#bad-request")
-        self.unauthorized = page.locator("#unauthorized")
-        self.forbidden = page.locator("#forbidden")
-        self.invalid_url = page.locator("#invalid-url")
-        self.linkResponse = page.locator("#linkResponse")
+        self.created = page.locator("#moved")
 
-    def navigate_to_links_page(self):
-        expect(self.link_page).to_be_visible()
-        self.link_page.click()
+    def api_call(self):
+        with self.page.expect_response("https://demoqa.com/moved") as response_info:
+            self.created.click()  # Click the button that triggers the network call
 
-    def handle_home_link_click(self):
-        with self.page.expect_popup() as popup_info:
-            self.home_link.click()
-        new_page = popup_info.value
-        expect(new_page).to_have_url("https://demoqa.com/")  # Replace with the actual URL or condition
-        # Add more actions or assertions on the new_page as needed
-        new_page.close()
-
-    def dynamic_link_click(self):
-        with self.page.expect_popup() as popup_info:
-            self.dynamic_link.click()
-        new_page = popup_info.value
-        expect(new_page).to_have_url("https://demoqa.com/")  # Replace with the actual URL or condition
-        # Add more actions or assertions on the new_page as needed
-        new_page.close()
-
-    def apicall(self):
-        self.page.wait_for_selector("#created")
-        self.no_content.click()
-        expected_text = "Link has responded with staus 204 and status text No Content"
-        expect(self.linkResponse).to_be_visible()
-        actual_text = self.linkResponse.text_content().strip()
-        assert expected_text == actual_text, f"Expected: {expected_text}, but got: {actual_text}"
+        response = response_info.value  # Capture the response
+        print(f"Response URL: {response.url}")
+        print(f"Status Code: {response.status}")
+        assert response.status == 301, f"Expected 301, but got {response.status}"

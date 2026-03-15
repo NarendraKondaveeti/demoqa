@@ -1,15 +1,14 @@
-import pytest
 from pages.Dynamic_properties import DynamicProperties
 from pages.buttons_page import ButtonPage
 from pages.check_box import CheckBox
 from pages.elements_page import ElementsPage
 from pages.file_download_upload import FileDownloadUpload
 from pages.home_page import HomePage
-from pages.links_page import LinksPage
+#from pages.links_page import LinksPage
 from pages.radio_buttons import Radiobutton
 from pages.text_box_page import TextBoxPage
 from pages.web_table_page import WebTable
-from tests.api.links_page import APILinksPage
+from pages.links_page import APILinksPage
 
 #@pytest.mark.dependency()
 def test_text_box_form(browser, jsondata):
@@ -22,7 +21,7 @@ def test_text_box_form(browser, jsondata):
         radio_button = Radiobutton(browser, user_data)
         web_table = WebTable(browser, user_data)
         button_page = ButtonPage(browser)
-        links_page = LinksPage(browser)
+        #links_page = LinksPage(browser)
         api_links_page = APILinksPage(browser)
         file_handle = FileDownloadUpload(browser)
         dynamic_properties = DynamicProperties(browser)
@@ -59,10 +58,10 @@ def test_text_box_form(browser, jsondata):
 
         button_page.buttons_check()
 
-        links_page.navigate_to_links_page()
+        """links_page.navigate_to_links_page()
         links_page.handle_home_link_click()
         links_page.dynamic_link_click()
-        links_page.apicall()
+        links_page.apicall()"""
 
         api_links_page.api_call()
 

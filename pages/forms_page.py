@@ -91,7 +91,8 @@ class FormsPage:
 
         upload_file = upload_file.value  # Capture the file chooser
 
-        file_path = "C:/Users/Narendra/Downloads/sampleFile.jpeg"  # Get absolute path
+        file_path = "D:\demoqa\Downloads\sample.jpeg"  # Get absolute path
+
         upload_file.set_files(file_path)  # Upload the file
 
     def select_state_and_city(self, data):

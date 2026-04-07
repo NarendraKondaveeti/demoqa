@@ -1,7 +1,8 @@
 Telugu (English letters lo explanation): -
-Vikram, idi chala core concept 👍 clear ayithe framework meeda full grip vastundi. First question: “.ini ante enti?” .ini ante “initialization/configuration file”. 
+First question: “.ini ante enti?” .ini ante “initialization/configuration file”. 
 Ante system start ayye mundu, ela behave avvalo rules set cheyyadam. pytest.ini lo manam pytest ki cheptam: “ila run avvu, ee markers use cheyyi, ee pattern follow cheyyi”.
-Ippudu main doubt: “pytest automatically identify chese files enti?” Pytest konni conventions follow chestundi. Avi:
+Ippudu main doubt: “pytest automatically identify chese files enti?” 
+Pytest konni conventions follow chestundi. Avi:
 **test_.py or _test.py → test files ga recognize chestundi
 conftest.py → fixtures and hooks kosam automatic ga load chestundi
 pytest.ini / tox.ini / setup.cfg → config files ga use chestundi
@@ -17,7 +18,7 @@ Situation 2: Normal code (NOT strict)
 utils, pages, config → ekkada rayina Python ki problem ledu
 kani import cheyyali
 👉 ante work avutundi, but messy avutundi
-Story laga ardham chesukundam. Road lo traffic rules untayi. Red signal daggara aapadam compulsory (STRICT). Kani road side lo ela nadavali ante flexible (NOT strict). Alane pytest lo konni files compulsory naming conventions follow avvali.
+Alane pytest lo konni files compulsory naming conventions follow avvali.
 Example 1 (STRICT case):
 # conftest.py
 import pytest
@@ -38,7 +39,8 @@ Conclusion (real-time clarity):
 👉 Pytest ki konni files special → avi correct place lo undali (conftest.py, test files, pytest.ini)
 👉 Migatha code ekkada rayina work avutundi → but structure follow cheyyakapothe maintenance problem
 👉 Strict rule kakapoyina, best practice mandatory in real-time projects
-Interview lo strong ga cheppali: Pytest does not enforce strict folder structure, but it follows conventions for special files like conftest.py, pytest.ini, and test files. If we don’t follow these conventions, some features like auto fixture discovery won’t work, and we need manual imports. For maintainability, we follow a structured approach.
+Interview lo strong ga cheppali: Pytest does not enforce strict folder structure, but it follows conventions for special files like conftest.py, pytest.ini, and test files. 
+If we don’t follow these conventions, some features like auto fixture discovery won’t work, and we need manual imports. For maintainability, we follow a structured approach.
 
 English (Simple Explanation): -
 “.ini” stands for initialization/configuration file. It is used to define how pytest should behave (markers, options, test discovery rules).
@@ -64,4 +66,5 @@ Some files must follow naming (important for auto-detection)
 Other code can work anywhere, but structure is required for maintainability
 
 Interview answer:
-“Pytest follows conventions for special files like conftest.py and pytest.ini. While Python allows code anywhere, if we don’t follow these conventions, features like automatic fixture discovery won’t work. So in real projects, we follow a structured approach.” 🚀
+“Pytest follows conventions for special files like conftest.py and pytest.ini. While Python allows code anywhere, if we don’t follow these conventions, features like automatic fixture discovery won’t work. 
+So in real projects, we follow a structured approach.” 🚀

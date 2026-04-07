@@ -1,0 +1,58 @@
+Telugu (English letters lo explanation)
+
+Framework ante oka automation project ki backbone laga untundi. Idi manam code ela rayali, ela organize cheyyali, ela run cheyyali, results ela chudali ani define chestundi. Python Playwright + Pytest framework lo manam real-time ga use chese structure chala systematic ga untundi, idi team lo andariki same understanding istundi.
+
+Ippudu full structure ni story laga ardham chesukundam. Meeru oka automation project start chesaru anukondi. First ga tests/ ane folder untundi. Ikkada actual test cases untayi, ante user flow ni simulate chese scripts. Example: login test, payment test. Ee tests lo direct ga locators petti code rayakudadhu, maintainability kosam separate ga petali.
+
+Next pages/ (POM layer). Ikkada prathi web page ki oka class untundi. Example: LoginPage, DashboardPage. Ikkada locators + actions (click, enter text) untayi. Idi maintainability ki chala important. UI change ayithe ikkade change chesthe saripothundi.
+
+Next utils/ or common/. Ikkada reusable functions untayi. Example: API calls, database connection, date handling, random data generation. Okkasari rasina functions ni multiple tests lo reuse chestam.
+
+Next config/. Ikkada environment details untayi. Example: base URL, credentials, browser type. Usually .env or config.yaml lo maintain chestam. Dev, QA, Prod environments ni easy ga switch cheyyochu.
+
+Next conftest.py (Hooks). Idi pytest lo chala important file. Ikkada setup and teardown logic untundi. Example: browser launch, page open, close browser. Fixtures ikkade define chestam. Idi global control center laga untundi.
+
+Next test_data/. Ikkada input data untundi (JSON/Excel). Data Driven testing kosam use chestam. Same test ni different data tho run cheyyachu.
+
+Next reports/. Execution tarvata reports generate avutayi. Pytest-html or Allure use chestam. Ikkada pass/fail status, logs, screenshots untayi.
+
+Next logs/. Debugging kosam logs maintain chestam. Failure ekkada jarigindo easy ga telustundi.
+
+Next screenshots/. Test fail ayithe automatic ga screenshot capture ayi ikkada save avutundi. Evidence laga use avutundi.
+
+Next cookies/session handling. Konni projects lo login skip cheyyadaniki cookies save/load chestam. Time save avutundi.
+
+Next pytest.ini. Ikkada pytest configurations untayi. Example: markers, default options.
+
+Next requirements.txt. Project ki kavalsina dependencies list untundi (playwright, pytest etc.).
+
+Flow ela untundi ante: Test file → Page class ni call chestundi → Page class UI actions perform chestundi → Utils/common functions support chestayi → conftest fixtures browser ni manage chestayi → Execution tarvata reports + screenshots generate avutayi.
+
+Real-time lo idi complete cycle.
+
+Interview lo strong answer: Python Playwright framework with pytest follows POM structure with separate layers like tests, pages, utils, config, and fixtures. It supports data-driven testing, reusable functions, reporting, logging, and screenshot capture, making the framework scalable and maintainable.
+
+English (Simple Explanation)
+
+A framework is the structured setup of an automation project. It defines how code is organized, executed, and maintained.
+
+In a Python Playwright + Pytest framework, the structure is usually like this:
+
+tests/ → Contains test cases (actual scenarios)
+pages/ → Page Object Model (each page has locators and methods)
+utils/common/ → Reusable functions (API calls, helpers)
+config/ → Environment details (URL, credentials)
+conftest.py → Pytest hooks and fixtures (setup/teardown, browser handling)
+test_data/ → Input data (JSON/Excel for data-driven testing)
+reports/ → HTML or Allure reports
+logs/ → Execution logs for debugging
+screenshots/ → Captured on failure
+cookies/session → Used to manage login sessions
+pytest.ini → Pytest configuration
+requirements.txt → Dependencies
+
+Execution flow:
+Test → Calls Page → Page interacts with UI → Utils support → Fixtures manage browser → Reports & screenshots generated
+
+Interview answer:
+“A Playwright Python framework with pytest is structured using POM. It includes test scripts, page classes, reusable utilities, configuration files, and pytest fixtures. It supports reporting, logging, screenshots, and data-driven testing, making it scalable and maintainable.” 🚀

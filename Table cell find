@@ -1,0 +1,77 @@
+Telugu (English letters lo explanation)
+
+Table lo specific cell ni validate cheyyadam ante, manam first aa table structure ni ardham chesukovali. HTML lo table mostly <table> → <tr> (rows) → <td> (columns) format lo untundi. Ippudu mee requirement enti ante 3rd row, 3rd column lo unna text ni verify cheyyali. Playwright lo idi easy ga handle cheyyachu using locators.
+
+Story laga chusthe, meeru oka Excel sheet lo unnaru anukondi. Meeru direct ga “Row 3, Column 3” ki vellali ante, Playwright ki kuda alane cheppali. XPath or CSS locator tho direct ga aa position ni access cheyyachu.
+
+Method 1: Direct XPath approach
+
+cell = page.locator("//table//tr[3]//td[3]")
+text = cell.text_content()
+assert text == "Expected Value"
+
+👉 Explanation:
+
+//tr[3] → 3rd row select chestundi
+//td[3] → aa row lo 3rd column
+text_content() → cell lo unna text ni tisukuntundi
+assert → expected value tho compare chestundi
+
+Method 2: Playwright locator chaining (recommended - real-time)
+
+rows = page.locator("table tr")
+third_row = rows.nth(2)   # index starts from 0
+cell = third_row.locator("td").nth(2)
+text = cell.text_content()
+assert text == "Expected Value"
+
+👉 Explanation line by line:
+
+page.locator("table tr") → anni rows ni capture chestundi
+.nth(2) → 3rd row (0 index kabatti 2)
+locator("td") → aa row lo columns ni select chestundi
+.nth(2) → 3rd column
+text_content() → value tisukuntundi
+assert → validation chestundi
+
+Important real-time point:
+Hardcoded XPath use cheyyadam konni cases lo fragile untundi. Kabatti .nth() approach better, maintainable.
+
+Example 2 (Dynamic validation):
+
+expected = "Approved"
+assert cell.text_content().strip() == expected
+
+👉 .strip() use chestam spaces remove cheyyadaniki
+
+Interview lo cheppali ante: Table handling in Playwright can be done using locators with indexing or XPath, and assertions are applied after extracting text using text_content().
+
+English (Simple Explanation)
+
+To validate a specific table cell (like 3rd row, 3rd column) in Playwright, you need to locate that cell and then assert its text.
+
+Method 1: Using XPath
+
+cell = page.locator("//table//tr[3]//td[3]")
+text = cell.text_content()
+assert text == "Expected Value"
+
+Method 2: Using Playwright locators (recommended)
+
+rows = page.locator("table tr")
+third_row = rows.nth(2)
+cell = third_row.locator("td").nth(2)
+text = cell.text_content()
+assert text == "Expected Value"
+
+Key Points:
+
+Index starts from 0 in .nth()
+Use .text_content() to get cell text
+Use assert to validate
+
+Best Practice:
+Prefer locator chaining (.nth()) over hardcoded XPath for better maintainability.
+
+Interview answer:
+“To validate a table cell in Playwright, we locate the specific row and column using locators or XPath, extract the text using text_content(), and apply assertions.” 🚀

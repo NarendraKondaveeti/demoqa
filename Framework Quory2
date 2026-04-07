@@ -1,96 +1,63 @@
-Telugu (English letters lo explanation)
-
+Telugu (English letters lo explanation): -
 Vikram, idi chala core concept 👍 clear ayithe framework meeda full grip vastundi. First question: “.ini ante enti?” .ini ante “initialization/configuration file”. Ante system start ayye mundu, ela behave avvalo rules set cheyyadam. pytest.ini lo manam pytest ki cheptam: “ila run avvu, ee markers use cheyyi, ee pattern follow cheyyi”.
-
 Ippudu main doubt: “pytest automatically identify chese files enti?” Pytest konni conventions follow chestundi. Avi:
-
 **test_.py or _test.py → test files ga recognize chestundi
 conftest.py → fixtures and hooks kosam automatic ga load chestundi
 pytest.ini / tox.ini / setup.cfg → config files ga use chestundi
-
 Ivi special files. Pytest internally scan chesi auto ga use chestundi.
-
 Ippudu important question: “ekada rayali? ekada rayakapothe work avvadha?”
 Answer ni clear ga cheptanu → 2 situations unnayi
-
 Situation 1: Special files (STRICT behavior)
-
 conftest.py lo rasina fixtures → auto ga available
 random file lo rasite → manual import cheyyali
 👉 Example:
 meeru fixture ni helpers.py lo rasite, pytest ki teliyadu → import cheyyakapothe error
-
 Situation 2: Normal code (NOT strict)
-
 utils, pages, config → ekkada rayina Python ki problem ledu
 kani import cheyyali
 👉 ante work avutundi, but messy avutundi
-
 Story laga ardham chesukundam. Road lo traffic rules untayi. Red signal daggara aapadam compulsory (STRICT). Kani road side lo ela nadavali ante flexible (NOT strict). Alane pytest lo konni files compulsory naming conventions follow avvali.
-
 Example 1 (STRICT case):
-
 # conftest.py
 import pytest
-
 @pytest.fixture
 def setup():
     print("setup")
-
 👉 ee fixture anni test files lo direct ga use cheyyachu (auto)
-
 But:
-
 # utils.py
 @pytest.fixture
 def setup():
     print("setup")
-
 👉 idi work kavali ante import cheyyali → lekapothe pytest recognize cheyyadu
-
 Example 2 (NOT strict):
 Meeru reusable function ni ekkada rayina parvaledu, kani proper import undali.
 Kani best practice → utils folder lo petali
-
 Conclusion (real-time clarity):
 👉 Pytest ki konni files special → avi correct place lo undali (conftest.py, test files, pytest.ini)
 👉 Migatha code ekkada rayina work avutundi → but structure follow cheyyakapothe maintenance problem
 👉 Strict rule kakapoyina, best practice mandatory in real-time projects
-
 Interview lo strong ga cheppali: Pytest does not enforce strict folder structure, but it follows conventions for special files like conftest.py, pytest.ini, and test files. If we don’t follow these conventions, some features like auto fixture discovery won’t work, and we need manual imports. For maintainability, we follow a structured approach.
 
-English (Simple Explanation)
-
+English (Simple Explanation): -
 “.ini” stands for initialization/configuration file. It is used to define how pytest should behave (markers, options, test discovery rules).
-
 Files automatically identified by pytest:
-
 test_*.py or *_test.py → test files
 conftest.py → fixtures and hooks (auto-loaded)
 pytest.ini → configuration file
-
 Now the key point:
-
 👉 Is it mandatory to write code in specific files?
-
 Case 1: Special files (Strict behavior)
-
 Fixtures in conftest.py → automatically available
 If written in another file → you must import manually
-
 Case 2: Normal code (Flexible)
-
 Utils, pages, config → can be written anywhere
 But must be imported
 Without structure → code becomes messy
-
 Example:
-
 Fixture in conftest.py → works automatically
 Same fixture in utils.py → needs manual import
-
 Final clarity:
-
 Pytest has conventions, not strict rules
 Some files must follow naming (important for auto-detection)
 Other code can work anywhere, but structure is required for maintainability

@@ -1,5 +1,6 @@
 Telugu (English letters lo explanation): -
-Vikram, idi chala core concept 👍 clear ayithe framework meeda full grip vastundi. First question: “.ini ante enti?” .ini ante “initialization/configuration file”. Ante system start ayye mundu, ela behave avvalo rules set cheyyadam. pytest.ini lo manam pytest ki cheptam: “ila run avvu, ee markers use cheyyi, ee pattern follow cheyyi”.
+Vikram, idi chala core concept 👍 clear ayithe framework meeda full grip vastundi. First question: “.ini ante enti?” .ini ante “initialization/configuration file”. 
+Ante system start ayye mundu, ela behave avvalo rules set cheyyadam. pytest.ini lo manam pytest ki cheptam: “ila run avvu, ee markers use cheyyi, ee pattern follow cheyyi”.
 Ippudu main doubt: “pytest automatically identify chese files enti?” Pytest konni conventions follow chestundi. Avi:
 **test_.py or _test.py → test files ga recognize chestundi
 conftest.py → fixtures and hooks kosam automatic ga load chestundi
